@@ -1,6 +1,7 @@
 package sample.Engine;
 
 import sample.Engine.Core.GameScene;
+import sample.MainMenuScene;
 
 public class GameSetup {
 
@@ -11,6 +12,6 @@ public class GameSetup {
     public double targetFramerate = 60;
     public int defaultResolutionX = 1280;
     public int defaultResolutionY = 720;
-    public GameScene mainScene = new SomeScene();
+    public GameScene mainScene = new MainMenuScene();
 
 }

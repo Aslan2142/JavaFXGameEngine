@@ -3,9 +3,9 @@ package sample.Engine;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
-import sample.Engine.Core.GameObject;
+import sample.Engine.Core.GameObject2D;
 
-public class TextObject extends GameObject {
+public class TextObject extends GameObject2D {
 
     protected String text = "";
     protected Color textColor = Color.BLACK;

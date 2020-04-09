@@ -1,35 +1,26 @@
 package sample.Engine.Core;
 
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.Node;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class GameObject extends Canvas {
+public abstract class GameObject {
 
     public String name;
-    public boolean collider;
+    public Node node;
 
-    private boolean alive;
+    protected boolean alive;
 
-    protected GraphicsContext context;
-
-    public GameObject(double sizeX, double sizeY)
+    public GameObject()
     {
-        super(sizeX, sizeY);
-
-        context = getGraphicsContext2D();
-
-        collider = false;
+        name = "";
         alive = true;
     }
 
     public void start() {}
 
     public void update(double deltaTime) {}
-
-    public void onCollision(GameObject other) {}
 
     public final void destroy()
     {
@@ -80,52 +71,6 @@ public abstract class GameObject extends Canvas {
     public final void addToScene(GameObject gameObject)
     {
         Main.getSceneManager().getGameScene().addObject(gameObject);
-    }
-
-    public final Vector2D<Double> getFacingDirection()
-    {
-        double rotation = getRotate() % 360;
-        rotation = rotation < 0 ? 360 + rotation : rotation;
-        rotation = Math.toRadians(rotation);
-
-        return new Vector2D(-Math.sin(rotation), Math.cos(rotation));
-    }
-
-    public final void setPosition(Vector2D<Double> position)
-    {
-        setPosition(position.x, position.y);
-    }
-
-    public final void setPosition(double x, double y)
-    {
-        setLayoutX(x);
-        setLayoutY(y);
-    }
-
-    public final Vector2D<Double> getPosition()
-    {
-        return new Vector2D<>(getLayoutX(), getLayoutY());
-    }
-
-    public final void move(Vector2D<Double> deltaPosition)
-    {
-        move(deltaPosition.x, deltaPosition.y);
-    }
-
-    public final void move(double deltaX, double deltaY)
-    {
-        setLayoutX(getLayoutX() + deltaX);
-        setLayoutY(getLayoutY() + deltaY);
-    }
-
-    public final void moveInDirection(double direction, double amount)
-    {
-        direction = direction % 360;
-        direction = direction < 0 ? 360 + direction : direction;
-        direction = Math.toRadians(direction);
-
-        setLayoutX(getLayoutX() + -Math.sin(direction) * amount);
-        setLayoutY(getLayoutY() + Math.cos(direction) * amount);
     }
 
 }
