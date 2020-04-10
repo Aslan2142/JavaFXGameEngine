@@ -2,6 +2,7 @@ package sample.Engine.Core;
 
 import javafx.scene.Camera;
 import javafx.scene.PerspectiveCamera;
+import javafx.scene.shape.MeshView;
 
 public class Camera3D extends GameObject3D {
 
@@ -22,6 +23,12 @@ public class Camera3D extends GameObject3D {
     public Camera getCamera()
     {
         return ((Camera)node);
+    }
+
+    @Override
+    public final MeshView getMesh()
+    {
+        return null;
     }
 
     @Override

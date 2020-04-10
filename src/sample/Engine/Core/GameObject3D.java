@@ -13,44 +13,49 @@ public class GameObject3D extends GameObject {
 
     public GameObject3D()
     {
+
+    }
+
+    public GameObject3D(String objFilePath)
+    {
         super();
 
-        TriangleMesh mesh = new TriangleMesh();
-
-        float h = 150;                    // Height
-        float s = 300;                    // Side
-        mesh.getPoints().addAll(
-                0,    0,    0,            // Point 0 - Top
-                0,    h,    -s/2,         // Point 1 - Front
-                -s/2, h,    0,            // Point 2 - Left
-                s/2,  h,    0,            // Point 3 - Back
-                0,    h,    s/2           // Point 4 - Right
-        );
+        /*TriangleMesh mesh = new TriangleMesh();
 
         mesh.getTexCoords().addAll(0,0);
 
-        mesh.getFaces().addAll(
-                0,0,  2,0,  1,0,          // Front left face
-                0,0,  1,0,  3,0,          // Front right face
-                0,0,  3,0,  4,0,          // Back right face
-                0,0,  4,0,  2,0,          // Back left face
-                4,0,  1,0,  2,0,          // Bottom rear face
-                4,0,  3,0,  1,0           // Bottom front face
+        mesh.getPoints().addAll(
+                -1, 0, 1,
+                1, 0, 1,
+                -1, 0, -1,
+                1, 0, -1
         );
 
-        node = new MeshView(mesh);
-        ((MeshView)node).setMaterial(new PhongMaterial(Color.BLUE));
-        ((MeshView)node).setCullFace(CullFace.BACK);
+        mesh.getFaces().addAll(
+                1,0,  2,0,  0,0,
+                1,0,  3,0,  2,0
+        );*/
+
+        ObjReader objReader = new ObjReader(objFilePath);
+
+        node = new MeshView(objReader.getMesh());
+        getMesh().setMaterial(new PhongMaterial(Color.BLUE));
+        getMesh().setCullFace(CullFace.NONE);
+    }
+
+    public MeshView getMesh()
+    {
+        return ((MeshView)node);
     }
 
     @Override
     public void start() {
-        setPosition(0, 0, 1000);
+        setPosition(0, 0, 10);
     }
 
     @Override
     public void update(double deltaTime) {
-        //rotate(0.3, 0.8, 0.1);
+        rotate(0.3, 0.1, 0.0);
     }
 
     public final void setX(double value)

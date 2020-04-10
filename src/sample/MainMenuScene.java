@@ -29,11 +29,13 @@ public class MainMenuScene extends GameScene {
         Camera3D camera3D = new Camera3D();
         gameSubScene.setCamera(camera3D);
 
-        GameObject3D obj = new GameObject3D();
+        GameObject3D obj = new GameObject3D("/sample/untitled.obj");
+        obj.setScale(10, 10, 10);
         gameSubScene.add(obj);
         gameSubScene.add(camera3D);
 
         objects.add(gameSubScene);
+
     }
 
 }

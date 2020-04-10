@@ -1,6 +1,7 @@
 package sample.Engine.Core;
 
 import javafx.scene.Group;
+import javafx.scene.SceneAntialiasing;
 import javafx.scene.SubScene;
 
 import java.util.Iterator;
@@ -17,7 +18,7 @@ public class GameSubScene extends GameObject {
         super();
 
         root = new Group();
-        node = new SubScene(root, 0, 0);
+        node = new SubScene(root, 0, 0, true, SceneAntialiasing.BALANCED);
     }
 
     public final SubScene getSubScene()

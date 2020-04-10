@@ -17,7 +17,7 @@ public abstract class GameObject2D extends GameObject {
         context = getCanvas().getGraphicsContext2D();
     }
 
-    public final Canvas getCanvas()
+    public Canvas getCanvas()
     {
         return ((Canvas)node);
     }
