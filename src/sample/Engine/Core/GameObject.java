@@ -3,14 +3,17 @@ package sample.Engine.Core;
 import javafx.scene.Node;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public abstract class GameObject {
 
     public String name;
     public Node node;
+    public GameSubScene currentSubScene;
 
-    protected boolean alive;
+    private boolean alive;
+    private final List<GameComponent> components = new LinkedList<>();
 
     public GameObject()
     {
@@ -22,6 +25,13 @@ public abstract class GameObject {
 
     public void update(double deltaTime) {}
 
+    public void componentUpdate(double deltaTime)
+    {
+        for (GameComponent component : components) {
+            component.update(deltaTime);
+        }
+    }
+
     public final void destroy()
     {
         alive = false;
@@ -30,6 +40,46 @@ public abstract class GameObject {
     public final boolean isAlive()
     {
         return alive;
+    }
+
+    public final void addComponent(GameComponent component)
+    {
+        components.add(component);
+    }
+
+    public final <T> boolean hasComponent(Class<T> type)
+    {
+        for (GameComponent component : components) {
+            if (type.isInstance(component)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public final <T> T getComponent(Class<T> type)
+    {
+        for (GameComponent component : components) {
+            if (type.isInstance(component)) {
+                return ((T) component);
+            }
+        }
+
+        return null;
+    }
+
+    public final <T> List<T> getComponents(Class<T> type)
+    {
+        List<T> returnComponents = new LinkedList<>();
+
+        for (GameComponent component : components) {
+            if (type.isInstance(component)) {
+                returnComponents.add(((T) component));
+            }
+        }
+
+        return returnComponents;
     }
 
     public final GameScene getCurrentScene()
@@ -43,7 +93,7 @@ public abstract class GameObject {
 
         for (GameObject obj : currentScene.objects)
         {
-            if (obj.name == _name)
+            if (obj.name.equals(_name))
             {
                 return obj;
             }
@@ -59,7 +109,7 @@ public abstract class GameObject {
 
         for (GameObject obj : currentScene.objects)
         {
-            if (obj.name == _name)
+            if (obj.name.equals(_name))
             {
                 gameObjects.add(obj);
             }

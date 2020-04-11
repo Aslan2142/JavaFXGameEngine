@@ -2,9 +2,9 @@ package sample.Engine.Core;
 
 public class Version {
 
-    private int major;
-    private int minor;
-    private int patch;
+    private final int major;
+    private final int minor;
+    private final int patch;
 
     public Version(int _major, int _minor, int _patch)
     {

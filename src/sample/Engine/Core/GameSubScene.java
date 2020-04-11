@@ -10,8 +10,8 @@ import java.util.List;
 
 public class GameSubScene extends GameObject {
 
-    Group root;
-    List<GameObject> objects = new LinkedList();
+    public final Group root;
+    public final List<GameObject> objects = new LinkedList<>();
 
     public GameSubScene()
     {
@@ -33,6 +33,7 @@ public class GameSubScene extends GameObject {
 
     public final void add(GameObject gameObject)
     {
+        gameObject.currentSubScene = this;
         objects.add(gameObject);
         getRoot().getChildren().add(gameObject.node);
     }
@@ -66,11 +67,12 @@ public class GameSubScene extends GameObject {
             if (!obj.isAlive())
             {
                 iterator.remove();
-                getRoot().getChildren().remove(obj);
+                getRoot().getChildren().remove(obj.node);
                 objects.remove(obj);
                 continue;
             }
             obj.update(deltaTime);
+            obj.componentUpdate(deltaTime);
         }
     }
 

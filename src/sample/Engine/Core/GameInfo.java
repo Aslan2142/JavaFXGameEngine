@@ -2,9 +2,9 @@ package sample.Engine.Core;
 
 public class GameInfo {
 
-    private String gameName;
-    private Version gameVersion;
-    private Version engineVersion;
+    private final String gameName;
+    private final Version gameVersion;
+    private final Version engineVersion;
 
     public GameInfo(String _gameName, Version _gameVersion, Version _engineVersion)
     {

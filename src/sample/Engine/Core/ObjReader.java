@@ -5,20 +5,19 @@ import javafx.scene.shape.TriangleMesh;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
 public class ObjReader {
 
-    private List<Float> vertices;
-    private List<Integer> faces;
+    private final List<Float> vertices;
+    private final List<Integer> faces;
 
     public ObjReader(String path)
     {
 
-        vertices = new LinkedList();
-        faces = new LinkedList();
+        vertices = new LinkedList<>();
+        faces = new LinkedList<>();
 
         try {
             InputStream in = getClass().getResourceAsStream(path);
@@ -46,28 +45,26 @@ public class ObjReader {
                 }
             }
 
+            reader.close();
+
         } catch (Exception e) {
             System.out.println("3D Object " + path + " could not be Loaded!");
         }
 
     }
 
-    public TriangleMesh getMesh()
+    public TriangleMesh createMesh()
     {
         TriangleMesh mesh = new TriangleMesh();
 
         mesh.getTexCoords().addAll(0,0);
 
-        Iterator<Float> iteratorVertices = vertices.iterator();
-        while (iteratorVertices.hasNext())
-        {
-            mesh.getPoints().addAll(iteratorVertices.next());
+        for (Float vertex : vertices) {
+            mesh.getPoints().addAll(vertex);
         }
 
-        Iterator<Integer> iteratorFaces = faces.iterator();
-        while (iteratorFaces.hasNext())
-        {
-            mesh.getFaces().addAll(iteratorFaces.next() - 1, 0);
+        for (Integer face : faces) {
+            mesh.getFaces().addAll(face - 1, 0);
         }
 
         return mesh;

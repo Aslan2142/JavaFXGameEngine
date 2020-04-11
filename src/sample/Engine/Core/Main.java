@@ -17,10 +17,6 @@ import java.util.List;
 
 public class Main extends Application {
 
-    private int engineVersionMajor = 2;
-    private int engineVersionMinor = 0;
-    private int engineVersionPatch = 0;
-
     private long currentTime;
 
     private static Scene scene;
@@ -33,7 +29,7 @@ public class Main extends Application {
     private static SceneManager sceneManager;
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         setupGame();
 
         Group root = new Group();
@@ -60,6 +56,10 @@ public class Main extends Application {
 
     private void setupGame()
     {
+        int engineVersionMajor = 2;
+        int engineVersionMinor = 0;
+        int engineVersionPatch = 0;
+
         GameSetup gameSetup = new GameSetup();
 
         gameInfo = new GameInfo(
@@ -70,7 +70,7 @@ public class Main extends Application {
 
         gameSettings = new GameSettings(
                 gameSetup.targetFramerate,
-                new Vector2D(gameSetup.defaultResolutionX, gameSetup.defaultResolutionY)
+                new Vector2D<>(gameSetup.defaultResolutionX, gameSetup.defaultResolutionY)
         );
 
         sceneManager = new SceneManager(gameSetup.mainScene);
@@ -145,11 +145,12 @@ public class Main extends Application {
             if (!obj.isAlive())
             {
                 iterator.remove();
-                children.remove(obj);
+                children.remove(obj.node);
                 gameScene.objects.remove(obj);
                 continue;
             }
             obj.update(deltaTime);
+            obj.componentUpdate(deltaTime);
         }
     }
 
@@ -170,7 +171,7 @@ public class Main extends Application {
 
     public static Vector2D<Double> getCurrentResolution()
     {
-        return new Vector2D(scene.getWidth(), scene.getHeight());
+        return new Vector2D<>(scene.getWidth(), scene.getHeight());
     }
 
 }

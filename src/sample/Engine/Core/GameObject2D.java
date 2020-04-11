@@ -7,7 +7,7 @@ import javafx.scene.input.MouseEvent;
 
 public abstract class GameObject2D extends GameObject {
 
-    protected GraphicsContext context;
+    protected final GraphicsContext context;
 
     public GameObject2D(double sizeX, double sizeY)
     {
@@ -21,6 +21,8 @@ public abstract class GameObject2D extends GameObject {
     {
         return ((Canvas)node);
     }
+
+    public void collision(GameObject2D other) {}
 
     public final void setWidth(double value)
     {
@@ -55,7 +57,7 @@ public abstract class GameObject2D extends GameObject {
 
     public final Vector2D<Double> getSize()
     {
-        return new Vector2D(getWidth(), getHeight());
+        return new Vector2D<>(getWidth(), getHeight());
     }
 
     public final void setX(double value)
@@ -91,13 +93,23 @@ public abstract class GameObject2D extends GameObject {
 
     public final Vector2D<Double> getPosition()
     {
-        return new Vector2D(getX(), getY());
+        return new Vector2D<>(getX(), getY());
+    }
+
+    public final void moveX(double deltaX)
+    {
+        setX(getX() + deltaX);
+    }
+
+    public final void moveY(double deltaY)
+    {
+        setY(getY() + deltaY);
     }
 
     public final void move(double deltaX, double deltaY)
     {
-        setX(getX() + deltaX);
-        setY(getY() + deltaY);
+        moveX(deltaX);
+        moveY(deltaY);
     }
 
     public final void move(Vector2D<Double> delta)
@@ -146,7 +158,15 @@ public abstract class GameObject2D extends GameObject {
         rotationDeg = rotationDeg < 0 ? 360 + rotationDeg : rotationDeg;
         rotationDeg = Math.toRadians(rotationDeg);
 
-        return new Vector2D(-Math.sin(rotationDeg), Math.cos(rotationDeg));
+        return new Vector2D<>(-Math.sin(rotationDeg), Math.cos(rotationDeg));
+    }
+
+    public final double distanceToGameObject(GameObject2D other)
+    {
+        double diffX = Math.pow(Math.abs(getX() - other.getX()), 2);
+        double diffY = Math.pow(Math.abs(getY() - other.getY()), 2);
+
+        return Math.sqrt(diffX + diffY);
     }
 
     public final void setOnMouseClicked(EventHandler<? super MouseEvent> e)

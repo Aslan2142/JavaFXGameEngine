@@ -2,8 +2,8 @@ package sample.Engine.Core;
 
 public class GameSettings {
 
-    private double targetFramerate;
-    private Vector2D<Integer> defaultResolution;
+    private final double targetFramerate;
+    private final Vector2D<Integer> defaultResolution;
 
     public GameSettings(double _targetFramerate, Vector2D<Integer> _defaultResolution)
     {

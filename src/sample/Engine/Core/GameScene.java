@@ -6,8 +6,8 @@ public abstract class GameScene {
 
     public Object args;
 
-    public List<GameObject> objects = new LinkedList();
-    public List<GameObject> newObjects = new LinkedList();
+    public final List<GameObject> objects = new LinkedList<>();
+    public final List<GameObject> newObjects = new LinkedList<>();
 
     public void addObject(GameObject gameObject)
     {

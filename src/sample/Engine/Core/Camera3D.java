@@ -20,7 +20,7 @@ public class Camera3D extends GameObject3D {
         getCamera().setFarClip(farClip);
     }
 
-    public Camera getCamera()
+    public final Camera getCamera()
     {
         return ((Camera)node);
     }
@@ -29,16 +29,6 @@ public class Camera3D extends GameObject3D {
     public final MeshView getMesh()
     {
         return null;
-    }
-
-    @Override
-    public void start() {
-
-    }
-
-    @Override
-    public void update(double deltaTime) {
-
     }
 
 }

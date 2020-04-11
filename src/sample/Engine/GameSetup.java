@@ -5,13 +5,13 @@ import sample.MainMenuScene;
 
 public class GameSetup {
 
-    public String gameName = "Game";
-    public int majorVersion = 1;
-    public int minorVersion = 0;
-    public int patchVersion = 0;
-    public double targetFramerate = 60;
-    public int defaultResolutionX = 1280;
-    public int defaultResolutionY = 720;
-    public GameScene mainScene = new MainMenuScene();
+    public final String gameName = "Game";
+    public final int majorVersion = 1;
+    public final int minorVersion = 0;
+    public final int patchVersion = 0;
+    public final double targetFramerate = 60;
+    public final int defaultResolutionX = 1280;
+    public final int defaultResolutionY = 720;
+    public final GameScene mainScene = new MainMenuScene();
 
 }

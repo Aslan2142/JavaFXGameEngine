@@ -29,9 +29,10 @@ public class MainMenuScene extends GameScene {
         Camera3D camera3D = new Camera3D();
         gameSubScene.setCamera(camera3D);
 
-        GameObject3D obj = new GameObject3D("/sample/untitled.obj");
-        obj.setScale(10, 10, 10);
-        gameSubScene.add(obj);
+        TestObject obj1 = new TestObject(); obj1.setPosition(2, 1.5, 10); obj1.moveAmount = -0.05;
+        TestObject obj2 = new TestObject(); obj2.setPosition(-2, 1.5, 10); obj2.moveAmount = 0.05;
+        gameSubScene.add(obj1);
+        gameSubScene.add(obj2);
         gameSubScene.add(camera3D);
 
         objects.add(gameSubScene);

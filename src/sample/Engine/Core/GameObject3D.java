@@ -9,38 +9,27 @@ import javafx.scene.shape.*;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Transform;
 
-public class GameObject3D extends GameObject {
+public abstract class GameObject3D extends GameObject {
 
     public GameObject3D()
     {
-
+        super();
     }
 
     public GameObject3D(String objFilePath)
     {
         super();
 
-        /*TriangleMesh mesh = new TriangleMesh();
-
-        mesh.getTexCoords().addAll(0,0);
-
-        mesh.getPoints().addAll(
-                -1, 0, 1,
-                1, 0, 1,
-                -1, 0, -1,
-                1, 0, -1
-        );
-
-        mesh.getFaces().addAll(
-                1,0,  2,0,  0,0,
-                1,0,  3,0,  2,0
-        );*/
-
         ObjReader objReader = new ObjReader(objFilePath);
 
-        node = new MeshView(objReader.getMesh());
-        getMesh().setMaterial(new PhongMaterial(Color.BLUE));
-        getMesh().setCullFace(CullFace.NONE);
+        setMesh(objReader.createMesh());
+    }
+
+    public GameObject3D(TriangleMesh mesh)
+    {
+        super();
+
+        setMesh(mesh);
     }
 
     public MeshView getMesh()
@@ -48,14 +37,13 @@ public class GameObject3D extends GameObject {
         return ((MeshView)node);
     }
 
-    @Override
-    public void start() {
-        setPosition(0, 0, 10);
-    }
+    public void collision(GameObject3D other) {}
 
-    @Override
-    public void update(double deltaTime) {
-        rotate(0.3, 0.1, 0.0);
+    public final void setMesh(TriangleMesh mesh)
+    {
+        node = new MeshView(mesh);
+        getMesh().setMaterial(new PhongMaterial(Color.BLUE));
+        getMesh().setCullFace(CullFace.NONE);
     }
 
     public final void setX(double value)
@@ -102,14 +90,29 @@ public class GameObject3D extends GameObject {
 
     public final Vector3D<Double> getPosition()
     {
-        return new Vector3D(getX(), getY(), getZ());
+        return new Vector3D<>(getX(), getY(), getZ());
+    }
+
+    public final void moveX(double deltaX)
+    {
+        setX(getX() + deltaX);
+    }
+
+    public final void moveY(double deltaY)
+    {
+        setY(getY() + deltaY);
+    }
+
+    public final void moveZ(double deltaZ)
+    {
+        setZ(getZ() + deltaZ);
     }
 
     public final void move(double deltaX, double deltaY, double deltaZ)
     {
-        setX(getX() + deltaX);
-        setY(getY() + deltaY);
-        setZ(getZ() + deltaZ);
+        moveX(deltaX);
+        moveY(deltaY);
+        moveZ(deltaZ);
     }
 
     public final void move(Vector3D<Double> delta)
@@ -246,7 +249,16 @@ public class GameObject3D extends GameObject {
 
     public final Vector3D<Double> getScale()
     {
-        return new Vector3D(getScaleX(), getScaleY(), getScaleZ());
+        return new Vector3D<>(getScaleX(), getScaleY(), getScaleZ());
+    }
+
+    public final double distanceToGameObject(GameObject3D other)
+    {
+        double diffX = Math.pow(Math.abs(getX() - other.getX()), 2);
+        double diffY = Math.pow(Math.abs(getY() - other.getY()), 2);
+        double diffZ = Math.pow(Math.abs(getZ() - other.getZ()), 2);
+
+        return Math.sqrt(diffX + diffY + diffZ);
     }
 
     public final void setOnMouseClicked(EventHandler<? super MouseEvent> e)

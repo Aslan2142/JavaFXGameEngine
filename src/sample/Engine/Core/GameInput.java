@@ -10,7 +10,7 @@ public class GameInput extends Canvas {
 
     private static GameInput instance;
 
-    private static HashSet<KeyCode> pressedKeys = new HashSet();
+    private static final HashSet<KeyCode> pressedKeys = new HashSet<>();
 
     public static void setup()
     {
@@ -19,8 +19,8 @@ public class GameInput extends Canvas {
         instance.setFocusTraversable(true);
         instance.requestFocus();
 
-        instance.setOnKeyPressed(e -> keyPress(e));
-        instance.setOnKeyReleased(e -> keyRelease(e));
+        instance.setOnKeyPressed(GameInput::keyPress);
+        instance.setOnKeyReleased(GameInput::keyRelease);
     }
 
     private static void keyPress(KeyEvent e)
