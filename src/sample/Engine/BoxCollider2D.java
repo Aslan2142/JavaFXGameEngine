@@ -12,7 +12,7 @@ public class BoxCollider2D extends GameComponent {
     public BoxCollider2D(GameObject2D _parent, double _size, boolean _triggeredAutomatically)
     {
         parent = _parent;
-        size = _size;
+        size = _size / 2;
         triggeredAutomatically = _triggeredAutomatically;
     }
 
@@ -51,7 +51,7 @@ public class BoxCollider2D extends GameComponent {
             }
 
             otherObj = ((GameObject2D)obj);
-            if (otherObj.distanceToGameObject(thisObj) > size)
+            if (otherObj.distanceToGameObject(thisObj) > size * 3)
             {
                 continue;
             }
