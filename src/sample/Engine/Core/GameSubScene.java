@@ -10,8 +10,8 @@ import java.util.List;
 
 public class GameSubScene extends GameObject {
 
-    public final Group root;
-    public final List<GameObject> objects = new LinkedList<>();
+    private final Group root;
+    private final List<GameObject> objects = new LinkedList<>();
 
     public GameSubScene()
     {
@@ -36,6 +36,11 @@ public class GameSubScene extends GameObject {
         gameObject.currentSubScene = this;
         objects.add(gameObject);
         getRoot().getChildren().add(gameObject.node);
+    }
+
+    public final List<GameObject> getObjects()
+    {
+        return objects;
     }
 
     public final void setCamera(Camera3D camera)

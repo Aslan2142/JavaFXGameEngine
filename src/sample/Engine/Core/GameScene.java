@@ -9,7 +9,11 @@ public abstract class GameScene {
     public final List<GameObject> objects = new LinkedList<>();
     public final List<GameObject> newObjects = new LinkedList<>();
 
-    public void addObject(GameObject gameObject)
+    public void start() {}
+
+    public void update(double deltaTime) {}
+
+    public final void addObject(GameObject gameObject)
     {
         newObjects.add(gameObject);
     }

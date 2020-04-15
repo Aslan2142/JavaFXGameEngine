@@ -42,6 +42,16 @@ public abstract class GameObject {
         return alive;
     }
 
+    public final void setOpacity(double value)
+    {
+        node.setOpacity(value);
+    }
+
+    public final double getOpacity()
+    {
+        return node.getOpacity();
+    }
+
     public final void addComponent(GameComponent component)
     {
         components.add(component);
@@ -89,9 +99,9 @@ public abstract class GameObject {
 
     public final GameObject getGameObject(String _name)
     {
-        GameScene currentScene = getCurrentScene();
+        List<GameObject> objects = currentSubScene == null ? getCurrentScene().objects : currentSubScene.getObjects();
 
-        for (GameObject obj : currentScene.objects)
+        for (GameObject obj : objects)
         {
             if (obj.name.equals(_name))
             {
@@ -104,10 +114,11 @@ public abstract class GameObject {
 
     public final List<GameObject> getGameObjects(String _name)
     {
-        GameScene currentScene = getCurrentScene();
+        List<GameObject> objects = currentSubScene == null ? getCurrentScene().objects : currentSubScene.getObjects();
+
         List<GameObject> gameObjects = new ArrayList<>();
 
-        for (GameObject obj : currentScene.objects)
+        for (GameObject obj : objects)
         {
             if (obj.name.equals(_name))
             {

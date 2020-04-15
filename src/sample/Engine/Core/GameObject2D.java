@@ -142,6 +142,11 @@ public abstract class GameObject2D extends GameObject {
         getCanvas().setRotate(value);
     }
 
+    public final void resetRotation()
+    {
+        setRotation(0);
+    }
+
     public final double getRotation()
     {
         return getCanvas().getRotate();
@@ -161,12 +166,22 @@ public abstract class GameObject2D extends GameObject {
         return new Vector2D<>(-Math.sin(rotationDeg), Math.cos(rotationDeg));
     }
 
-    public final double distanceToGameObject(GameObject2D other)
+    public final double distanceTo(double posX, double posY)
     {
-        double diffX = Math.pow(Math.abs(getX() - other.getX()), 2);
-        double diffY = Math.pow(Math.abs(getY() - other.getY()), 2);
+        double diffX = Math.pow(Math.abs(getX() - posX), 2);
+        double diffY = Math.pow(Math.abs(getY() - posY), 2);
 
         return Math.sqrt(diffX + diffY);
+    }
+
+    public final double distanceTo(Vector2D<Double> position)
+    {
+        return distanceTo(position.x, position.y);
+    }
+
+    public final double distanceTo(GameObject2D other)
+    {
+        return distanceTo(other.getPosition());
     }
 
     public final void setOnMouseClicked(EventHandler<? super MouseEvent> e)

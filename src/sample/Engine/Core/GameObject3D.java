@@ -37,14 +37,27 @@ public abstract class GameObject3D extends GameObject {
         return ((MeshView)node);
     }
 
-    public void collision(GameObject3D other) {}
-
     public final void setMesh(TriangleMesh mesh)
     {
-        node = new MeshView(mesh);
-        getMesh().setMaterial(new PhongMaterial(Color.BLUE));
+        if (node == null)
+        {
+            node = new MeshView(mesh);
+        } else {
+            getMesh().setMesh(mesh);
+        }
+
         getMesh().setCullFace(CullFace.NONE);
+
+        setMeshColor(Color.WHITE);
     }
+
+    public final void setMeshColor(Color color)
+    {
+        PhongMaterial material = new PhongMaterial(color);
+        getMesh().setMaterial(material);
+    }
+
+    public void collision(GameObject3D other) {}
 
     public final void setX(double value)
     {
@@ -164,6 +177,11 @@ public abstract class GameObject3D extends GameObject {
         setRotation(value.x, value.y, value.z);
     }
 
+    public final void resetRotation()
+    {
+        setRotation(0, 0, 0);
+    }
+
     public final void rotateX(double value)
     {
         rotate(value, Rotate.X_AXIS);
@@ -252,13 +270,23 @@ public abstract class GameObject3D extends GameObject {
         return new Vector3D<>(getScaleX(), getScaleY(), getScaleZ());
     }
 
-    public final double distanceToGameObject(GameObject3D other)
+    public final double distanceTo(double posX, double posY, double posZ)
     {
-        double diffX = Math.pow(Math.abs(getX() - other.getX()), 2);
-        double diffY = Math.pow(Math.abs(getY() - other.getY()), 2);
-        double diffZ = Math.pow(Math.abs(getZ() - other.getZ()), 2);
+        double diffX = Math.pow(Math.abs(getX() - posX), 2);
+        double diffY = Math.pow(Math.abs(getY() - posY), 2);
+        double diffZ = Math.pow(Math.abs(getZ() - posZ), 2);
 
         return Math.sqrt(diffX + diffY + diffZ);
+    }
+
+    public final double distanceTo(Vector3D<Double> position)
+    {
+        return distanceTo(position.x, position.y, position.z);
+    }
+
+    public final double distanceTo(GameObject3D other)
+    {
+        return distanceTo(other.getPosition());
     }
 
     public final void setOnMouseClicked(EventHandler<? super MouseEvent> e)

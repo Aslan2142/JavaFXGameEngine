@@ -20,23 +20,38 @@ public class BoxCollider2D extends GameComponent {
     public void update(double deltaTime) {
         if (triggeredAutomatically)
         {
-            collidesAtPosition(((GameObject2D)parent).getPosition(), true);
+            collides(true);
         }
     }
 
-    public boolean collidesAtPosition(Vector2D<Double> thisPosition, boolean trigger)
+    public GameObject2D collides(boolean trigger)
+    {
+        return collidesAtPosition(((GameObject2D)parent).getPosition(), size, trigger);
+    }
+
+    public GameObject2D collides(double colliderSize, boolean trigger)
+    {
+        return collidesAtPosition(((GameObject2D)parent).getPosition(), colliderSize, trigger);
+    }
+
+    public GameObject2D collidesAtPosition(Vector2D<Double> thisPosition, boolean trigger)
+    {
+        return collidesAtPosition(thisPosition, size, trigger);
+    }
+
+    public GameObject2D collidesAtPosition(Vector2D<Double> thisPosition, double colliderSize, boolean trigger)
     {
         GameObject2D thisObj = ((GameObject2D)parent);
-        double thisSideX1 = thisPosition.x - size;
-        double thisSideX2 = thisPosition.x + size;
-        double thisSideY1 = thisPosition.y - size;
-        double thisSideY2 = thisPosition.y + size;
+        double thisSideX1 = thisPosition.x - colliderSize;
+        double thisSideX2 = thisPosition.x + colliderSize;
+        double thisSideY1 = thisPosition.y - colliderSize;
+        double thisSideY2 = thisPosition.y + colliderSize;
 
         GameObject2D otherObj;
         BoxCollider2D otherCollider;
-        boolean collision = false;
+        GameObject2D collided = null;
 
-        List<GameObject> objects = parent.currentSubScene == null ? parent.getCurrentScene().objects : parent.currentSubScene.objects;
+        List<GameObject> objects = parent.currentSubScene == null ? parent.getCurrentScene().objects : parent.currentSubScene.getObjects();
         for (GameObject obj : objects)
         {
             if (!(obj instanceof GameObject2D))
@@ -51,7 +66,7 @@ public class BoxCollider2D extends GameComponent {
             }
 
             otherObj = ((GameObject2D)obj);
-            if (otherObj.distanceToGameObject(thisObj) > size * 3)
+            if (otherObj.distanceTo(thisPosition) > size * 3)
             {
                 continue;
             }
@@ -77,11 +92,11 @@ public class BoxCollider2D extends GameComponent {
                 continue;
             }
 
-            collision = true;
+            collided = otherObj;
             if (trigger) thisObj.collision(otherObj);
         }
 
-        return collision;
+        return collided;
     }
 
     public double getSize() {

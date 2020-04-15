@@ -1,6 +1,6 @@
 package sample.Engine.Core;
 
-public class Version {
+public final class Version {
 
     private final int major;
     private final int minor;
@@ -30,6 +30,12 @@ public class Version {
 
     public int getPatch() {
         return patch;
+    }
+
+    @Override
+    public String toString()
+    {
+        return major + "." + minor + "." + patch;
     }
 
 }

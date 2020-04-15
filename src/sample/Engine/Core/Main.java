@@ -57,7 +57,7 @@ public class Main extends Application {
     private void setupGame()
     {
         int engineVersionMajor = 2;
-        int engineVersionMinor = 0;
+        int engineVersionMinor = 1;
         int engineVersionPatch = 0;
 
         GameSetup gameSetup = new GameSetup();
@@ -83,7 +83,10 @@ public class Main extends Application {
     {
         for (GameObject obj : gameObjects)
         {
-            children.add(obj.node);
+            if (obj.node != null)
+            {
+                children.add(obj.node);
+            }
         }
     }
 
@@ -91,7 +94,10 @@ public class Main extends Application {
     {
         for (GameObject obj : gameObjects)
         {
-            children.remove(obj.node);
+            if (obj.node != null)
+            {
+                children.remove(obj.node);
+            }
         }
     }
 
@@ -105,6 +111,8 @@ public class Main extends Application {
         {
             obj.start();
         }
+
+        gameScene.start();
     }
 
     private void loadNewSceneObjects()
@@ -152,6 +160,8 @@ public class Main extends Application {
             obj.update(deltaTime);
             obj.componentUpdate(deltaTime);
         }
+
+        gameScene.update(deltaTime);
     }
 
     public static void main(String[] args)

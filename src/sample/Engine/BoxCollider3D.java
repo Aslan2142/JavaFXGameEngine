@@ -20,25 +20,40 @@ public class BoxCollider3D extends GameComponent {
     public void update(double deltaTime) {
         if (triggeredAutomatically)
         {
-            collidesAtPosition(((GameObject3D)parent).getPosition(), true);
+            collides(true);
         }
     }
 
-    public boolean collidesAtPosition(Vector3D<Double> thisPosition, boolean trigger)
+    public GameObject3D collides(boolean trigger)
+    {
+        return collidesAtPosition(((GameObject3D)parent).getPosition(), size, trigger);
+    }
+
+    public GameObject3D collides(double colliderSize, boolean trigger)
+    {
+        return collidesAtPosition(((GameObject3D)parent).getPosition(), colliderSize, trigger);
+    }
+
+    public GameObject3D collidesAtPosition(Vector3D<Double> thisPosition, boolean trigger)
+    {
+        return collidesAtPosition(thisPosition, size, trigger);
+    }
+
+    public GameObject3D collidesAtPosition(Vector3D<Double> thisPosition, double colliderSize, boolean trigger)
     {
         GameObject3D thisObj = ((GameObject3D)parent);
-        double thisSideX1 = thisPosition.x - size;
-        double thisSideX2 = thisPosition.x + size;
-        double thisSideY1 = thisPosition.y - size;
-        double thisSideY2 = thisPosition.y + size;
-        double thisSideZ1 = thisPosition.z - size;
-        double thisSideZ2 = thisPosition.z + size;
+        double thisSideX1 = thisPosition.x - colliderSize;
+        double thisSideX2 = thisPosition.x + colliderSize;
+        double thisSideY1 = thisPosition.y - colliderSize;
+        double thisSideY2 = thisPosition.y + colliderSize;
+        double thisSideZ1 = thisPosition.z - colliderSize;
+        double thisSideZ2 = thisPosition.z + colliderSize;
 
         GameObject3D otherObj;
         BoxCollider3D otherCollider;
-        boolean collision = false;
+        GameObject3D collided = null;
 
-        List<GameObject> objects = parent.currentSubScene == null ? parent.getCurrentScene().objects : parent.currentSubScene.objects;
+        List<GameObject> objects = parent.currentSubScene == null ? parent.getCurrentScene().objects : parent.currentSubScene.getObjects();
         for (GameObject obj : objects)
         {
             if (!(obj instanceof GameObject3D))
@@ -53,7 +68,7 @@ public class BoxCollider3D extends GameComponent {
             }
 
             otherObj = ((GameObject3D)obj);
-            if (otherObj.distanceToGameObject(thisObj) > size * 3)
+            if (otherObj.distanceTo(thisPosition) > size * 3)
             {
                 continue;
             }
@@ -86,11 +101,11 @@ public class BoxCollider3D extends GameComponent {
                 continue;
             }
 
-            collision = true;
+            collided = otherObj;
             if (trigger) thisObj.collision(otherObj);
         }
 
-        return collision;
+        return collided;
     }
 
     public double getSize() {
