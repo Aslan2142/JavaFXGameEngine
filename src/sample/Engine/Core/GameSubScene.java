@@ -12,6 +12,7 @@ public class GameSubScene extends GameObject {
 
     private final Group root;
     private final List<GameObject> objects = new LinkedList<>();
+    private final List<GameObject> newObjects = new LinkedList<>();
 
     public GameSubScene()
     {
@@ -38,6 +39,11 @@ public class GameSubScene extends GameObject {
         getRoot().getChildren().add(gameObject.node);
     }
 
+    public final void addNewObject(GameObject gameObject)
+    {
+        newObjects.add(gameObject);
+    }
+
     public final List<GameObject> getObjects()
     {
         return objects;
@@ -58,6 +64,11 @@ public class GameSubScene extends GameObject {
 
     @Override
     public final void update(double deltaTime) {
+        if (newObjects.size() > 0)
+        {
+            loadNewSceneObjects();
+        }
+
         Vector2D<Double> resolution = Main.getCurrentResolution();
         getSubScene().setWidth(resolution.x);
         getSubScene().setHeight(resolution.y);
@@ -79,6 +90,20 @@ public class GameSubScene extends GameObject {
             obj.update(deltaTime);
             obj.componentUpdate(deltaTime);
         }
+    }
+
+    private final void loadNewSceneObjects()
+    {
+        for (GameObject obj : newObjects)
+        {
+            obj.start();
+
+            obj.currentSubScene = this;
+            objects.add(obj);
+            getRoot().getChildren().add(obj.node);
+        }
+
+        newObjects.clear();
     }
 
 }

@@ -131,7 +131,17 @@ public abstract class GameObject {
 
     public final void addToScene(GameObject gameObject)
     {
-        Main.getSceneManager().getGameScene().addObject(gameObject);
+        addToScene(gameObject, false);
+    }
+
+    public final void addToScene(GameObject gameObject, boolean ignoreSubscene)
+    {
+        if (currentSubScene == null || ignoreSubscene)
+        {
+            Main.getSceneManager().getGameScene().addObject(gameObject);
+            return;
+        }
+        currentSubScene.addNewObject(gameObject);
     }
 
 }
