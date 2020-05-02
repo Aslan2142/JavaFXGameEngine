@@ -99,7 +99,12 @@ public abstract class GameObject {
 
     public final GameObject getGameObject(String _name)
     {
-        List<GameObject> objects = currentSubScene == null ? getCurrentScene().objects : currentSubScene.getObjects();
+        return getGameObject(_name, false);
+    }
+
+    public final GameObject getGameObject(String _name, boolean ignoreSubscene)
+    {
+        List<GameObject> objects = currentSubScene == null || ignoreSubscene ? getCurrentScene().objects : currentSubScene.getObjects();
 
         for (GameObject obj : objects)
         {
@@ -114,7 +119,12 @@ public abstract class GameObject {
 
     public final List<GameObject> getGameObjects(String _name)
     {
-        List<GameObject> objects = currentSubScene == null ? getCurrentScene().objects : currentSubScene.getObjects();
+        return getGameObjects(_name, false);
+    }
+
+    public final List<GameObject> getGameObjects(String _name, boolean ignoreSubscene)
+    {
+        List<GameObject> objects = currentSubScene == null || ignoreSubscene ? getCurrentScene().objects : currentSubScene.getObjects();
 
         List<GameObject> gameObjects = new ArrayList<>();
 
@@ -138,10 +148,10 @@ public abstract class GameObject {
     {
         if (currentSubScene == null || ignoreSubscene)
         {
-            Main.getSceneManager().getGameScene().addObject(gameObject);
+            Main.getSceneManager().getGameScene().addObjectNextFrame(gameObject);
             return;
         }
-        currentSubScene.addNewObject(gameObject);
+        currentSubScene.addObjectNextFrame(gameObject);
     }
 
 }

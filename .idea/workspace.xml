@@ -2,15 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/sample/Engine/SolidBackground.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/JavaFXApp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/JavaFXApp.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/description.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameEngine.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GameEngine.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/META-INF/GameEngine.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/sample/untitled.obj" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Engine/BoxCollider2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/BoxCollider2D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Engine/BoxCollider3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/BoxCollider3D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/ButtonObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/ButtonObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/Core/Camera2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/Core/Camera2D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Engine/Core/Camera3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/Core/Camera3D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/Core/GameComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/Core/GameComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/Core/GameInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/Core/GameInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/Core/GameInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/Core/GameInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/Core/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/Core/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/Core/GameObject2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/Core/GameObject2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/Core/GameObject3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/Core/GameObject3D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/Core/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/Core/GameScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/Core/GameSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/Core/GameSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/Core/GameSubScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/Core/GameSubScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/Core/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/Core/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/Core/ObjReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/Core/ObjReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/Core/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/Core/SceneManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/Core/Vector2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/Core/Vector2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/Core/Vector3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/Core/Vector3D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/Core/Version.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/Core/Version.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/FramerateCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/FramerateCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/GameAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/GameAnimation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Engine/GameSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/GameSetup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/MainGameScene.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/MainMenuScene.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/TestObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/untitled.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/StartScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/StartScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Engine/TextObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Engine/TextObject.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,9 +92,6 @@
     <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="JavaFxApplication" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -87,7 +118,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -98,12 +128,13 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/sample" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -225,10 +256,10 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2392" y="394" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586272094836">
+    <state x="2307" y="238" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588054525708">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2392" y="394" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1586272094836" />
+    <state x="2307" y="238" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1588054525708" />
     <state x="2612" y="362" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586291648255">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -257,26 +288,26 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2566" y="300" key="FileChooserDialogImpl/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1586291236348" />
-    <state width="1874" height="191" key="GridCell.Tab.0.bottom" timestamp="1586648136236">
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1588421663362">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1874" height="191" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.36.1920.1044@0.36.1920.1044" timestamp="1586645567658" />
-    <state width="1874" height="191" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1586648136236" />
-    <state width="1874" height="191" key="GridCell.Tab.0.center" timestamp="1586648136236">
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1588421663362" />
+    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1588421663362">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1874" height="191" key="GridCell.Tab.0.center/1920.0.1920.1080/0.36.1920.1044@0.36.1920.1044" timestamp="1586645567658" />
-    <state width="1874" height="191" key="GridCell.Tab.0.center/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1586648136236" />
-    <state width="1874" height="191" key="GridCell.Tab.0.left" timestamp="1586648136236">
+    <state width="1874" height="275" key="GridCell.Tab.0.center/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1588421663362" />
+    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1588421663362">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1874" height="191" key="GridCell.Tab.0.left/1920.0.1920.1080/0.36.1920.1044@0.36.1920.1044" timestamp="1586645567658" />
-    <state width="1874" height="191" key="GridCell.Tab.0.left/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1586648136236" />
-    <state width="1874" height="191" key="GridCell.Tab.0.right" timestamp="1586648136236">
+    <state width="1874" height="275" key="GridCell.Tab.0.left/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1588421663362" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1588421663362">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1874" height="191" key="GridCell.Tab.0.right/1920.0.1920.1080/0.36.1920.1044@0.36.1920.1044" timestamp="1586645567658" />
-    <state width="1874" height="191" key="GridCell.Tab.0.right/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1586648136236" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1588421663362" />
     <state width="1874" height="339" key="GridCell.Tab.1.bottom" timestamp="1586633015370">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -293,10 +324,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1874" height="339" key="GridCell.Tab.1.right/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1586633015370" />
-    <state x="2367" y="134" key="SettingsEditor" timestamp="1586291241913">
+    <state x="2367" y="134" key="SettingsEditor" timestamp="1588054500909">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2367" y="134" key="SettingsEditor/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1586291241913" />
+    <state x="2367" y="134" key="SettingsEditor/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1588054500909" />
     <state x="2608" y="291" width="540" height="524" key="StructurePopup" timestamp="1585366821910">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>

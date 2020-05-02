@@ -13,7 +13,7 @@ public abstract class GameScene {
 
     public void update(double deltaTime) {}
 
-    public final void addObject(GameObject gameObject)
+    public final void addObjectNextFrame(GameObject gameObject)
     {
         newObjects.add(gameObject);
     }

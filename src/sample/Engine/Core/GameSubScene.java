@@ -32,14 +32,14 @@ public class GameSubScene extends GameObject {
         return ((Group)getSubScene().getRoot());
     }
 
-    public final void add(GameObject gameObject)
+    public final void addObject(GameObject gameObject)
     {
         gameObject.currentSubScene = this;
         objects.add(gameObject);
-        getRoot().getChildren().add(gameObject.node);
+        if (gameObject.node != null) getRoot().getChildren().add(gameObject.node);
     }
 
-    public final void addNewObject(GameObject gameObject)
+    public final void addObjectNextFrame(GameObject gameObject)
     {
         newObjects.add(gameObject);
     }
@@ -50,6 +50,11 @@ public class GameSubScene extends GameObject {
     }
 
     public final void setCamera(Camera3D camera)
+    {
+        getSubScene().setCamera(camera.getCamera());
+    }
+
+    public final void setCamera(Camera2D camera)
     {
         getSubScene().setCamera(camera.getCamera());
     }

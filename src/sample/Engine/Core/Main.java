@@ -8,6 +8,7 @@ import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.scene.*;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import sample.Engine.GameSetup;
@@ -19,6 +20,7 @@ public class Main extends Application {
 
     private long currentTime;
 
+    private Group root;
     private static Scene scene;
     private ObservableList<Node> children;
 
@@ -31,8 +33,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         setupGame();
+        primaryStage.setResizable(gameSettings.isResizableWindow());
 
-        Group root = new Group();
+        root = new Group();
+        root.setOnMouseMoved(e -> { GameInput.mouseCoordinates.x = e.getSceneX(); GameInput.mouseCoordinates.y = e.getSceneY(); });
+        root.setOnMouseDragged(e -> { GameInput.mouseCoordinates.x = e.getSceneX(); GameInput.mouseCoordinates.y = e.getSceneY(); });
+        root.setOnMousePressed(e -> GameInput.mouseClicks.add(e.getButton()));
         children = root.getChildren();
 
         Vector2D<Integer> resolution = gameSettings.getDefaultResolution();
@@ -57,7 +63,7 @@ public class Main extends Application {
     private void setupGame()
     {
         int engineVersionMajor = 2;
-        int engineVersionMinor = 1;
+        int engineVersionMinor = 2;
         int engineVersionPatch = 0;
 
         GameSetup gameSetup = new GameSetup();
@@ -70,7 +76,8 @@ public class Main extends Application {
 
         gameSettings = new GameSettings(
                 gameSetup.targetFramerate,
-                new Vector2D<>(gameSetup.defaultResolutionX, gameSetup.defaultResolutionY)
+                new Vector2D<>(gameSetup.defaultResolutionX, gameSetup.defaultResolutionY),
+                gameSetup.resizableWindow
         );
 
         sceneManager = new SceneManager(gameSetup.mainScene);
@@ -162,11 +169,23 @@ public class Main extends Application {
         }
 
         gameScene.update(deltaTime);
+
+        GameInput.mouseClicks.clear();
     }
 
     public static void main(String[] args)
     {
         launch(args);
+    }
+
+    public static void setCursor(Cursor cursor)
+    {
+        scene.setCursor(cursor);
+    }
+
+    public static void setCursor(String path, Vector2D<Double> hotspot)
+    {
+        scene.setCursor(new ImageCursor(new Image(path), hotspot.x, hotspot.y));
     }
 
     public static GameInfo getGameInfo()

@@ -11,6 +11,7 @@ public class GameSetup {
     public final double targetFramerate = 60;
     public final int defaultResolutionX = 1280;
     public final int defaultResolutionY = 720;
+    public final boolean resizableWindow = true;
     public final GameScene mainScene = new StartScene();
 
 }
